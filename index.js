@@ -28,12 +28,11 @@ function questionChanged(event) {
     var wrongChoicePattern = /-\[[xX]]\s(.*)\n/g;
     var content = $('#quiz-content').val();
 
-    var preOfCorrect = '<button class="m-0 btn input-group"><div class="input-group"><div class="form-control border border-3 border-success" type="correct">';
-    var postOfCorrect = '</div></div></button>';
+    var preOfCorrect = '<button class="mx-auto my-1 w-75 align-self-center btn btn-outline-dark border-5" type="correct">';
+    var postOfCorrect = '</button>';
 
-    var preOfWrong = '<button class="m-0 btn input-group"><div class="input-group"><div class="form-control border border-3 border-success" type="wrong">';
-    var postOfWrong = '</div></div></button>';
-
+    var preOfWrong = '<button class="mx-auto my-1 w-75 align-self-center btn btn-outline-dark border-5" type="wrong">';
+    var postOfWrong = '</button>';
     var result = content.replace(rightChoicePattern, preOfCorrect + '$1' + postOfCorrect);
     result = result.replace(wrongChoicePattern, preOfWrong + '$1' + postOfWrong);
 
