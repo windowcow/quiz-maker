@@ -1,0 +1,5 @@
+.btn, .h3 {
+    white-space:normal !important;
+    word-wrap: break-word; 
+}
+
