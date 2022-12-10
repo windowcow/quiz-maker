@@ -27,12 +27,8 @@
           <form>
             <!-- start question text -->
             <div class="my-2 text-center">
-              <label for="question" class="form-label">
-                <h4>
-                  ?
-                </h4>
-              </label>
-              <textarea class="form-control" name="" id="question" rows="15"></textarea>
+              <textarea class="form-control" name="" id="quiz-title" rows="2"></textarea>
+              <textarea class="form-control" name="" id="quiz-content" rows="15"></textarea>
             </div>
             <!-- end question text -->
 
@@ -43,35 +39,24 @@
             <div class="row">
               <h3>preview</h3>
             </div>
-            <div class="my-5 row">
+            <div class="my-5 row" id="title-box">
               <div class="h3">Q. How many legs does your dog have?</div>
             </div>
-            <div class="my-5 row">
-              <div class="my-1 input-group">
-                <div class="input-group-text text-black bg-white">A</div>
-                <div class="form-control btn-outline-success">
-                  1개
-                </div>
-              </div>
-
+            <div class="my-5 row" id="choice-box">
+              <!-- choice 1 start -->
               <button class="m-0 btn input-group">
                 <div class="input-group">
-                  <div class="input-group-text text-black bg-white
-                    border border-3
-                    border-success">B
-                  </div>
                   <div class="form-control border border-3
-                    border-success border-start-0 ">
+                    border-success  ">
                     2개
                   </div>
                 </div>
               </button>
+              <!-- choice 1 end -->
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
 
     <!-- JavaScript Bundle with Popper -->
