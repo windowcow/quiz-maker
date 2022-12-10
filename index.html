@@ -23,86 +23,55 @@
       </div>
 
       <div class="row">
-        <div class="my-3 col-8 offset-2 border">
+        <div class="my-3 col-5 border">
           <form>
             <!-- start question text -->
             <div class="my-2 text-center">
               <label for="question" class="form-label">
                 <h4>
-                  write down a question for your quiz
+                  ?
                 </h4>
               </label>
-              <textarea class="form-control" name="" id="question" rows="3"></textarea>
+              <textarea class="form-control" name="" id="question" rows="15"></textarea>
             </div>
             <!-- end question text -->
 
-            <!-- start answer type selection -->
-            <div class="btn-group my-2">
-              <button class="btn btn-outline-dark" disabled>Multiple Choices</button>
-              <button class="btn btn-outline-dark" disabled>Blank</button>
-            </div>
-            <!-- end answer type selection -->
-
-            <div class="my-2 row ">
-              <div class="input-group">
-                <div class="input-group-text bg-success text-white">A</div>
-                <div class="form-control btn-outline-success">
-                  여기 있는 과자의 개수는?</div>
-                <button class="m-2 btn-close" id=""></button>
-              </div>
-            </div>
-
-
-            <!-- start answer text -->
-            <div class="my-2 row ">
-              <div class="input-group">
-                <button class="btn btn-outline-success">O</button>
-                <button class="btn btn-outline-danger">X</button>
-                <label for=""></label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name=""
-                  id="choice-text"
-                  placeholder="">
-                <button class="btn btn-outline-warning" id="add-choice-btn">+</button>
-              </div>
-            </div>
-            <!-- end answer text -->
           </form>
 
         </div>
-
-      </div>
-      <div class="row">
-        <div class="my-3 col-8 offset-2 border border-primary">
-          <div class="row">
-            <h3>preview</h3>
-          </div>
-          <div class="my-5 row">
-            <div class="h3">Q. How many legs does your dog have?</div>
-          </div>
-          <div class="my-5 row">
-            <div class="my-1 input-group">
-              <div class="input-group-text text-black bg-white">A</div>
-              <div class="form-control btn-outline-success">
-                1개</div>
+        <div class="my-3 col-5 offset-1 border">
+            <div class="row">
+              <h3>preview</h3>
             </div>
-
-            <button class="m-0 btn input-group">
-              <div class="input-group">
-                <div class="input-group-text text-black bg-white
-                  border border-3
-                  border-success">B</div>
-                <div class="form-control border border-3
-                  border-success border-start-0 ">
-                  2개
+            <div class="my-5 row">
+              <div class="h3">Q. How many legs does your dog have?</div>
+            </div>
+            <div class="my-5 row">
+              <div class="my-1 input-group">
+                <div class="input-group-text text-black bg-white">A</div>
+                <div class="form-control btn-outline-success">
+                  1개
                 </div>
               </div>
-            </button>
+
+              <button class="m-0 btn input-group">
+                <div class="input-group">
+                  <div class="input-group-text text-black bg-white
+                    border border-3
+                    border-success">B
+                  </div>
+                  <div class="form-control border border-3
+                    border-success border-start-0 ">
+                    2개
+                  </div>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
+
       </div>
+
     </div>
 
     <!-- JavaScript Bundle with Popper -->
