@@ -159,5 +159,5 @@ function exportClicked(event) {
     var url = makeEncodedURL(quizTitle, quizContent);
     $('#export-button').attr('href', url);
     console.log(url);
-    alert('Link Copied as iframe!\n' + 'link : ' + url.toString());
+    alert('Link Copied as iframe!');
 };
