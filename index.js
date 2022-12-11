@@ -67,7 +67,7 @@ function submitClicked(event) {
             $(element).addClass('btn-outline-danger');
         }
     });
-}
+};
 
 function makeEncodedURL(quizTitle, quizContent) {
     var url = 'https://windowcow.github.io/quiz-template/?title=' + quizTitle + '&content=' + quizContent;

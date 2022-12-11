@@ -7,7 +7,6 @@ $(document).ready(function () {
         submitClicked(event);
     });
 
-    $('submit-button').val('asdf')
     setQuizContents();
 
 
@@ -16,6 +15,7 @@ $(document).ready(function () {
 function setQuizContents() {
     var quizTitle = getTitleFromURLSearchParams();
     var quizContent = getContentFromURLSearchParams();
+
     updateQuizOutOfHTML(quizTitle, quizContent);
 
 };
