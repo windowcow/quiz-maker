@@ -161,6 +161,7 @@ function exportClicked(event) {
     var url = makeEncodedURL(quizTitle, quizContent);
     console.log(url);
 
+    
     $('#dummy').val(url);
     $('#dummy').select();
     document.execCommand('copy');
