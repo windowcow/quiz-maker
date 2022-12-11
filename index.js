@@ -50,6 +50,7 @@ function decodeURL(url) {
 function refreshClicked(event) {
     event.preventDefault();
     console.log('refreshClicked');
+    $('#submit-button').prop('disabled', false);
     questionChangedInTextArea(event);
 };
 
@@ -58,7 +59,7 @@ function makeEncodedURL(quizTitle, quizContent) {
     var url = 'https://windowcow.github.io/quiz-template/?title=' + quizTitle + '&content=' + quizContent;
     var encodedURL = encodeURI(url);
     console.log(encodedURL);
-    return url;
+    return encodedURL;
 };
 
 
@@ -112,9 +113,9 @@ function correctChoiceAndCorrectAnswer(element) {
 };
 
 function wrongChoiceAndWrongAnswer(element) {
-    var wrongDeco = '<div class="col-1 m-auto fw-bold text-danger text-center">WRONG</div>';
+    var rightDeco = '<div class="col-1 m-auto fw-bold text-success text-center">RIGHT</div>';
 
-    $(element).parent().prepend(wrongDeco);
+    $(element).parent().prepend(rightDeco);
     $(element).removeClass('btn-primary');
     $(element).removeClass('btn-outline-dark');
     $(element).addClass('btn-danger text-white');
@@ -159,5 +160,7 @@ function exportClicked(event) {
     var url = makeEncodedURL(quizTitle, quizContent);
     $('#export-button').attr('href', url);
     console.log(url);
+    $('#export-button').attr('href').select();
+    document.execCommand('copy');
     alert('Link Copied as iframe!');
 };
