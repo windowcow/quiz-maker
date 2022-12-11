@@ -162,7 +162,7 @@ function exportClicked(event) {
     console.log(url);
 
     $('#dummy').val(url);
-    $('dummy').select();
+    $('#dummy').select();
     document.execCommand('copy');
     alert('Link Copied as iframe!');
 };
