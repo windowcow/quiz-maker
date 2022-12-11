@@ -144,7 +144,7 @@ function submitClicked(event) {
             $(element).removeClass('btn-outline-primary');
             $(element).toggle('text-white');
             $(element).addClass('btn-outline-danger');
-            $(element).append('-> THIS IS A WRONG CHOICE')
+            $(element).append('-> THIS IS A WRONG CHOICE');
             element.disabled = true;
             event.target.disabled = true;
 
