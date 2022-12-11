@@ -3,25 +3,47 @@ $(document).ready(function () {
         addChoiceBtnClicked(event);
     });
 
-    $('#quiz-title').on('input', function (event) {
-        titleChanged(event);
-    });
-
-    $('#quiz-content').on('input', function (event) {
-        questionChangedInTextArea(event);
-    });
-
     $('#submit-button').on('click', function (event) {
         submitClicked(event);
     });
 
-    $('#export-button').on('click', function (event) {
-        exportClicked(event);
-    });
+    setQuizContents();
+
+
 });
 
+function setQuizContents() {
+    var quizTitle = getTitleFromURLSearchParams();
+    var quizContent = getContentFromURLSearchParams();
+    updateQuizOutOfHTML(quizTitle, quizContent);
+
+};
+
+function getTitleFromURLSearchParams() {
+    var encodedURL = new URL(window.location.href);
+    var decodedURL = decodeURI(encodedURL);
+    console.log(decodedURL);
+    var urlParams = decodedURL.searchParams;
+    var title = urlParams.get('title');
+    return title;
+};
+
+function getContentFromURLSearchParams() {
+    var encodedURL = new URL(window.location.href);
+    var decodedURL = decodeURI(encodedURL);
+    var urlParams = decodedURL.searchParams;
+    var content = urlParams.get('content');
+    return content;
+};
+
+function decodeURL(url) {
+    var decodedURL = decodeURI(url);
+    return decodedURL;
+};
+
+
 function makeTitleHTMLWithText(quizTitle) {
-    var titleHTML = '<div class="h3 p-3">' + $('#quiz-title').val() + '</div>';
+    var titleHTML = '<div class="h3 p-3">' + quizTitle + '</div>';
     return titleHTML
 };
 
@@ -36,38 +58,13 @@ function correctChoiceAndCorrectAnswer(event) {
     $(element).addClass('btn-success text-white');
 };
 
-function getURLSearchParams() {
-    var params = new URLSearchParams(window.location.search);
-    return params;
-}
 
-function decodeURL(url) {
-    var decodedURL = decodeURI(url);
-    return decodedURL;
-}
 
 function wrongChoiceAndWrongAnswer(event) {
     $(element).removeClass('btn-primary');
     $(element).removeClass('btn-outline-primary');
     $(element).addClass('btn-success text-white');
 };
-
-function submitClicked(event) {
-    event.preventDefault();
-    console.log('submitClicked');
-    $('#choice-box button').each(function (index, element) {
-        if ($(element).hasClass('checked-as-answer') && $(element).attr('type') == 'correct') {
-            correctChoiceAndCorrectAnswer(event);
-        }
-        else if (!$(element).hasClass('checked-as-answer') && $(element).attr('type') == 'wrong') {
-            wrongChoiceAndWrongAnswer(event);
-        }
-        else {
-            $(element).removeClass('btn-primary');
-            $(element).addClass('btn-outline-danger');
-        }
-    });
-}
 
 function makeEncodedURL(quizTitle, quizContent) {
     var url = 'https://windowcow.github.io/quiz-template/?title=' + quizTitle + '&content=' + quizContent;
@@ -110,7 +107,7 @@ function makeQuizChoiceHTMLWithText(quizChoiceText) {
     return choicesHTML
 }
 
-function makeQuizOutOfHTML(quizTitle, quizChoices) {
+function updateQuizOutOfHTML(quizTitle, quizChoices) {
     var titleHTML = makeTitleHTMLWithText(quizTitle);
     var choicesHTML = makeQuizChoiceHTMLWithText(quizChoices);
     $('#title-box').html(titleHTML);
@@ -124,6 +121,6 @@ function makeQuizOutOfHTML(quizTitle, quizChoices) {
 function questionChangedInTextArea(event) {
     var quizContent = $('#quiz-content').val();
     var quizTitle = $('#quiz-title').val();
-    makeQuizOutOfHTML(quizTitle, quizContent);
+    updateQuizOutOfHTML(quizTitle, quizContent);
 };
 

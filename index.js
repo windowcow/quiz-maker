@@ -110,7 +110,7 @@ function makeQuizChoiceHTMLWithText(quizChoiceText) {
     return choicesHTML
 }
 
-function makeQuizOutOfHTML(quizTitle, quizChoices) {
+function updateQuizOutOfHTML(quizTitle, quizChoices) {
     var titleHTML = makeTitleHTMLWithText(quizTitle);
     var choicesHTML = makeQuizChoiceHTMLWithText(quizChoices);
     $('#title-box').html(titleHTML);
@@ -124,6 +124,6 @@ function makeQuizOutOfHTML(quizTitle, quizChoices) {
 function questionChangedInTextArea(event) {
     var quizContent = $('#quiz-content').val();
     var quizTitle = $('#quiz-title').val();
-    makeQuizOutOfHTML(quizTitle, quizContent);
+    updateQuizOutOfHTML(quizTitle, quizContent);
 };
 
