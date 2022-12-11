@@ -159,7 +159,6 @@ function exportClicked(event) {
     var quizTitle = $('#quiz-title').val();
     var quizContent = $('#quiz-content').val();
     var url = makeEncodedURL(quizTitle, quizContent);
-    $('#export-button').attr('href', url);
     console.log(url);
 
     $('#dummy').val(url);
