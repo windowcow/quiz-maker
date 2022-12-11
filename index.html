@@ -28,8 +28,11 @@
           <form>
             <!-- start question text -->
             <div class="my-2 text-center">
-              <textarea class="form-control" name="" id="quiz-title" rows="2" placeholder="Write down a question"></textarea>
-              <textarea class="form-control" name="" id="quiz-content" rows="15" placeholder="Write down choices. -[o] for a right choice and -[x] for a wrong choice"></textarea>
+              <textarea class="form-control" name="" id="quiz-title" rows="2"
+                placeholder="Write down a question"></textarea>
+              <textarea class="form-control" name="" id="quiz-content" rows="15"
+                placeholder="Write down choices. -[o] for a right choice and
+                -[x] for a wrong choice"></textarea>
             </div>
             <!-- end question text -->
 
@@ -37,47 +40,42 @@
 
         </div>
         <div class=" mx-auto my-3 col-5 offset-1 border align-items-center">
-            <div class="my-2 row text-center" id="title-box">
-            </div>
-            <div class="my-4 row" id="choice-box">
-              <!-- choice 1 start -->
-              <h6 class="text-secondary text-opacity-75">Preview of the quiz</h6>
-              <div class="row">
-                <div class="col-auto m-auto fw-bold text-success text-center">RIGHT</div>
-                <button class="mx-auto my-1 w-75 align-self-center btn btn-outline-dark border-5"
-                type="correct" data-toggle="button" aria-pressed="false" autocomplete="off">'
-                asdf
-                </button>
-              </div>
-              
-              <!-- choice 1 end -->
-            </div>
+          <div class="row"></div>
 
-            <div class="my-1 row" id="submit-box">
-              <!-- submit start -->
-
-              <button class="w-75 mx-auto justify-content-center btn btn-warning" id="submit-button">
-                Check Answer
-              </button>
-              <!-- submit end -->
-            </div>
+          <div class="my-2 row text-center" id="title-box">
           </div>
-          <div class="my-1 row col-5 offset-6" id="submit-box">
+          <div class="my-4 row" id="choice-box">
+            <!-- choice 1 start -->
+            <h6 class="text-secondary text-opacity-75">Preview of the quiz</h6>
+            <!-- choice 1 end -->
+          </div>
+
+          <div class="my-1 row" id="submit-box">
+            <!-- submit start -->
+            <button class="w-50 col-1 btn btn-info" id="refresh-button">
+              ↻
+            </button>
+            <button class="w-50 mx-auto justify-content-center btn btn-warning"
+              id="submit-button">
+              Check Answer
+            </button>
+            <!-- submit end -->
+          </div>
+          <div class="row my-1" id="submit-box">
             <button class="btn btn-light border border-3" id="export-button">
-              Export this quiz
+              Export
             </button>
           </div>
         </div>
       </div>
-    </div>
 
 
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"></script>
-    <script src="jquery-3.6.1.min.js"></script>
-    <script src="index.js"></script>
-  </body>
-</html>
+      <!-- JavaScript Bundle with Popper -->
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+      <script src="jquery-3.6.1.min.js"></script>
+      <script src="index.js"></script>
+    </body>
+  </html>

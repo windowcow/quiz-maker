@@ -18,6 +18,10 @@ $(document).ready(function () {
     $('#export-button').on('click', function (event) {
         exportClicked(event);
     });
+
+    $('#refresh-button').on('click', function (event) {
+        refreshClicked(event);
+    });
 });
 
 function makeTitleHTMLWithText(quizTitle) {
@@ -42,24 +46,12 @@ function decodeURL(url) {
     return decodedURL;
 };
 
-function correctChoiceAndCorrectAnswer(event) {
-    var rightDeco = '<div class="col-1 m-auto fw-bold text-success text-center">RIGHT</div>';
 
-    $(element).parent().prepend(rightDeco);
-    $(element).removeClass('btn-primary');
-    $(element).removeClass('btn-outline-dark');
-    $(element).addClass('btn-success text-white');
+function refreshClicked(event) {
+    event.preventDefault();
+    console.log('refreshClicked');
+    questionChangedInTextArea(event);
 };
-
-function wrongChoiceAndWrongAnswer(event) {
-    var wrongDeco = '<div class="col-1 m-auto fw-bold text-danger text-center">WRONG</div>';
-
-    $(element).parent().prepend(wrongDeco);
-    $(element).removeClass('btn-primary');
-    $(element).removeClass('btn-outline-primary');
-    $(element).addClass('btn-success text-white');
-};
-
 
 
 function makeEncodedURL(quizTitle, quizContent) {
@@ -110,20 +102,51 @@ function choiceClicked(event) {
     event.target.classList.toggle('checked-as-answer');
 };
 
+function correctChoiceAndCorrectAnswer(element) {
+    var rightDeco = '<div class="col-1 m-auto fw-bold text-success text-center">RIGHT</div>';
+
+    $(element).parent().prepend(rightDeco);
+    $(element).removeClass('btn-primary');
+    $(element).removeClass('btn-outline-dark');
+    $(element).addClass('btn-success text-white');
+};
+
+function wrongChoiceAndWrongAnswer(element) {
+    var wrongDeco = '<div class="col-1 m-auto fw-bold text-danger text-center">WRONG</div>';
+
+    $(element).parent().prepend(wrongDeco);
+    $(element).removeClass('btn-primary');
+    $(element).removeClass('btn-outline-dark');
+    $(element).addClass('btn-danger text-white');
+};
+
 function submitClicked(event) {
     event.preventDefault();
     console.log('submitClicked');
 
     $('#choice-box button').each(function (index, element) {
         if ($(element).hasClass('checked-as-answer') && $(element).attr('type') == 'correct') {
-            correctChoiceAndCorrectAnswer(event);
+            correctChoiceAndCorrectAnswer(element);
+            element.disabled = true;
+            event.target.disabled = true;
+
         }
         else if (!$(element).hasClass('checked-as-answer') && $(element).attr('type') == 'wrong') {
-            wrongChoiceAndWrongAnswer(event);
+            wrongChoiceAndWrongAnswer(element);
+            element.disabled = true;
+            event.target.disabled = true;
         }
         else {
+            var wrongDeco = '<div class="col-1 m-auto fw-bold text-danger text-center">WRONG</div>';
+            $(element).parent().prepend(wrongDeco);
             $(element).removeClass('btn-primary');
+            $(element).removeClass('btn-outline-primary');
+            $(element).toggle('text-white');
             $(element).addClass('btn-outline-danger');
+            $(element).append('-> THIS IS A WRONG CHOICE')
+            element.disabled = true;
+            event.target.disabled = true;
+
         }
     });
 };
@@ -135,4 +158,6 @@ function exportClicked(event) {
     var quizContent = $('#quiz-content').val();
     var url = makeEncodedURL(quizTitle, quizContent);
     $('#export-button').attr('href', url);
+    console.log(url);
+    alert('Link Copied as iframe!\n' + 'link : ' + url.toString());
 };
