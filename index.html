@@ -14,18 +14,19 @@
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
   </head>
-  <body>
-    <div class="container p-5">
-      <div class="row">
+  <body class="bg-light">
+    <div class="container my-5 my-border border-dark p-5">
+      <div class="row my-5">
         <div class="col text-center">
-          <h1>Quiz Maker</h1>
-          <p>Make quizzes free!</p>
+          <div class="h1 text-opacity-75">Quiz maker</div>
+          <p>Make quizzes free! <br>Export the quiz you made and post it to your
+            blog.</p>
         </div>
       </div>
 
       <div class="row">
         <!-- edit area start -->
-        <div class="mx-auto my-3 col-5 border">
+        <div class=" col-lg-5 mx-auto my-3">
           <form>
             <!-- start question text -->
             <div class="my-2 text-center">
@@ -41,10 +42,8 @@
         </div>
         <!-- edit area end -->
 
-
-
         <!-- preview area start -->
-        <div class=" mx-auto my-3 col-5 border align-items-center">
+        <div class="col-lg-5 mx-auto my-3 border align-items-center bg-white">
           <div class="row"></div>
 
           <div class="my-2 row text-center" id="title-box">
@@ -67,7 +66,8 @@
             <!-- submit end -->
           </div>
           <div class="row my-1" id="submit-box">
-            <button class="btn btn-light border border-3" id="export-button">
+            <button class="my-3 mx-auto w-75 btn btn-light border border-3"
+              id="export-button">
               Export
             </button>
           </div>
@@ -75,14 +75,33 @@
         </div>
         <!-- preview area end -->
       </div>
+      <!-- about me start -->
+      <div class="row my-5 mx-0">
+        <div class="mx-auto my-0 col-3 w-50 text-center align-self-center">
+          <div class="h1 text-success">Instructor</div>
+          <div class="h6 text-primary">Tamer Abuhmed (SKKU)</div>
+        </div>
+        <div class="mx-auto col-3 w-50 text-center">
+          <a href="https://github.com/windowcow">
+            <img
+              src="https://ko.wizcase.com/wp-content/uploads/2022/03/GitHub-Logo.png"
+              alt="windowcow" width="200">
+          </a>
+          <p class="text-center">windowcow</p>
+
+        </div>
+      </div>
+      <!-- about me end -->
+    </div>
+    <!-- end of container -->
 
 
-      <!-- JavaScript Bundle with Popper -->
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-      <script src="jquery-3.6.1.min.js"></script>
-      <script src="index.js"></script>
-    </body>
-  </html>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"></script>
+    <script src="jquery-3.6.1.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
