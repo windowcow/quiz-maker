@@ -8,17 +8,26 @@ $(document).ready(function () {
     });
 
     $('#quiz-content').on('input', function (event) {
-        questionChanged(event);
+        questionChangedInTextArea(event);
     });
 
     $('#submit-button').on('click', function (event) {
         submitClicked(event);
     });
+
+    $('#export-button').on('click', function (event) {
+        exportClicked(event);
+    });
 });
 
+function makeTitleHTMLWithText(quizTitle) {
+    var titleHTML = '<div class="h3 p-3">' + $('#quiz-title').val() + '</div>';
+    return titleHTML
+};
+
 function titleChanged(event) {
-    var text = '<div class="h3 p-3">' + $('#quiz-title').val() + '</div>';
-    $('#title-box').html(text);
+    var titleHTML = makeTitleHTMLWithText($('#quiz-title').val());
+    $('#title-box').html(titleHTML);
 };
 
 function correctChoiceAndCorrectAnswer(event) {
@@ -26,6 +35,16 @@ function correctChoiceAndCorrectAnswer(event) {
     $(element).removeClass('btn-outline-dark');
     $(element).addClass('btn-success text-white');
 };
+
+function getURLSearchParams() {
+    var params = new URLSearchParams(window.location.search);
+    return params;
+}
+
+function decodeURL(url) {
+    var decodedURL = decodeURI(url);
+    return decodedURL;
+}
 
 function wrongChoiceAndWrongAnswer(event) {
     $(element).removeClass('btn-primary');
@@ -53,6 +72,7 @@ function submitClicked(event) {
 function makeEncodedURL(quizTitle, quizContent) {
     var url = 'https://windowcow.github.io/quiz-template/?title=' + quizTitle + '&content=' + quizContent;
     var encodedURL = encodeURI(url);
+    console.log(encodedURL);
     return url;
 }
 
@@ -67,26 +87,43 @@ function choiceClicked(event) {
     event.target.classList.toggle('checked-as-answer');
 };
 
-function questionChanged(event) {
-    // regex pattern
+function exportClicked(event) {
+    event.preventDefault();
+    console.log('exportClicked');
+    var quizTitle = $('#quiz-title').val();
+    var quizContent = $('#quiz-content').val();
+    var url = makeEncodedURL(quizTitle, quizContent);
+    $('#export-button').attr('href', url);
+}
+
+function makeQuizChoiceHTMLWithText(quizChoiceText) {
     var rightChoicePattern = /-\[[oO]]\s(.*)\n/g;
     var wrongChoicePattern = /-\[[xX]]\s(.*)\n/g;
-    var content = $('#quiz-content').val();
-
     // html fragment
     var preOfCorrect = '<button class="mx-auto my-1 w-75 align-self-center btn btn-outline-dark border-5" type="correct" data-toggle="button" aria-pressed="false" autocomplete="off">';
     var postOfCorrect = '</button>';
-
     var preOfWrong = '<button class="mx-auto my-1 w-75 align-self-center btn btn-outline-dark border-5" type="wrong" data-toggle="button" aria-pressed="false" autocomplete="off">';
     var postOfWrong = '</button>';
 
-    var result = content.replace(rightChoicePattern, preOfCorrect + '$1' + postOfCorrect);
-    result = result.replace(wrongChoicePattern, preOfWrong + '$1' + postOfWrong);
+    var choicesHTML = quizChoiceText.replace(rightChoicePattern, preOfCorrect + '$1' + postOfCorrect);
+    choicesHTML = choicesHTML.replace(wrongChoicePattern, preOfWrong + '$1' + postOfWrong);
+    return choicesHTML
+}
 
-    $('#choice-box').html(result);
-
+function makeQuizOutOfHTML(quizTitle, quizChoices) {
+    var titleHTML = makeTitleHTMLWithText(quizTitle);
+    var choicesHTML = makeQuizChoiceHTMLWithText(quizChoices);
+    $('#title-box').html(titleHTML);
+    $('#choice-box').html(choicesHTML);
     $('#choice-box button').on('click', function (event) {
         choiceClicked(event);
     });
+}
+
+
+function questionChangedInTextArea(event) {
+    var quizContent = $('#quiz-content').val();
+    var quizTitle = $('#quiz-title').val();
+    makeQuizOutOfHTML(quizTitle, quizContent);
 };
 
