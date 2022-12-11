@@ -13,6 +13,7 @@ $(document).ready(function () {
 
     $('#submit-button').on('click', function (event) {
         submitClicked(event);
+
     });
 
     $('#export-button').on('click', function (event) {
