@@ -166,4 +166,6 @@ function exportClicked(event) {
     $temp.val(url).select();
     document.execCommand("copy");
     $temp.remove();
+
+    alert('URL copied to clipboard in iframe format!\nYou can edit width and height.');
 };
