@@ -161,9 +161,9 @@ function exportClicked(event) {
     var url = makeEncodedURL(quizTitle, quizContent);
     console.log(url);
 
-    
-    $('#dummy').val(url);
-    $('#dummy').select();
-    document.execCommand('copy');
-    alert('Link Copied as iframe!');
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val(url).select();
+    document.execCommand("copy");
+    $temp.remove();
 };
