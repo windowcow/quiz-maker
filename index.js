@@ -68,9 +68,9 @@ function makeQuizChoiceHTMLWithText(quizChoiceText) {
     var rightChoicePattern = /-\[[oO]]\s(.*)\n/g;
     var wrongChoicePattern = /-\[[xX]]\s(.*)\n/g;
     // html fragment
-    var preOfCorrect = '<div class="row"><button class="mx-auto my-1 w-75 align-self-center btn btn-outline-dark border-5" type="correct" data-toggle="button" aria-pressed="false" autocomplete="off">';
+    var preOfCorrect = '<div class="row mx-0"><button class="mx-auto my-1 w-75 btn btn-outline-dark border-5" type="correct" data-toggle="button" aria-pressed="false" autocomplete="off">';
     var postOfCorrect = '</button></div>';
-    var preOfWrong = '<div class="row"><button class="mx-auto my-1 w-75 align-self-center btn btn-outline-dark border-5" type="wrong" data-toggle="button" aria-pressed="false" autocomplete="off">';
+    var preOfWrong = '<div class="row mx-0"><button class="mx-auto my-1 w-75  btn btn-outline-dark border-5" type="wrong" data-toggle="button" aria-pressed="false" autocomplete="off">';
     var postOfWrong = '</button></div>';
 
     var choicesHTML = quizChoiceText.replace(rightChoicePattern, preOfCorrect + '$1' + postOfCorrect);
@@ -105,7 +105,7 @@ function choiceClicked(event) {
 };
 
 function correctChoiceAndCorrectAnswer(element) {
-    var rightDeco = '<div class="col-1 m-auto fw-bold text-success text-center">RIGHT</div>';
+    var rightDeco = '<div class="col-1 m-auto fw-bold text-success text-start">RIGHT</div>';
 
     $(element).parent().prepend(rightDeco);
     $(element).removeClass('btn-primary');
@@ -141,12 +141,7 @@ function submitClicked(event) {
         else {
             var wrongDeco = '<div class="col-1 m-auto fw-bold text-danger text-center">WRONG</div>';
             $(element).parent().prepend(wrongDeco);
-            $(element).removeClass('btn-primary');
-            $(element).removeClass('btn-outline-primary');
-            $(element).toggle('text-white');
-            $(element).addClass('btn-outline-danger');
-            $(element).append('-> THIS IS A WRONG CHOICE');
-            element.disabled = true;
+            $(element).remove();
             event.target.disabled = true;
 
         }

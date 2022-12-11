@@ -19,12 +19,13 @@
       <div class="row">
         <div class="col text-center">
           <h1>Quiz Maker</h1>
-          <p>text here</p>
+          <p>Make quizzes free!</p>
         </div>
       </div>
 
       <div class="row">
-        <div class="my-3 col-5 border">
+        <!-- edit area start -->
+        <div class="mx-auto my-3 col-5 border">
           <form>
             <!-- start question text -->
             <div class="my-2 text-center">
@@ -37,14 +38,18 @@
             <!-- end question text -->
 
           </form>
-
         </div>
-        <div class=" mx-auto my-3 col-5 offset-1 border align-items-center">
+        <!-- edit area end -->
+
+
+
+        <!-- preview area start -->
+        <div class=" mx-auto my-3 col-5 border align-items-center">
           <div class="row"></div>
 
           <div class="my-2 row text-center" id="title-box">
           </div>
-          <div class="my-4 row" id="choice-box">
+          <div class="my-4 mx-0 row" id="choice-box">
             <!-- choice 1 start -->
             <h6 class="text-secondary text-opacity-75">Preview of the quiz</h6>
             <!-- choice 1 end -->
@@ -52,10 +57,10 @@
 
           <div class="my-1 row" id="submit-box">
             <!-- submit start -->
-            <button class="w-50 col-1 btn btn-info" id="refresh-button">
+            <button class="w-25 mx-auto btn btn-info" id="refresh-button">
               ↻
             </button>
-            <button class="w-50 mx-auto justify-content-center btn btn-warning"
+            <button class="w-25 mx-auto justify-content-center btn btn-warning"
               id="submit-button">
               Check Answer
             </button>
@@ -68,6 +73,7 @@
           </div>
           <input id="dummy" type="hidden">
         </div>
+        <!-- preview area end -->
       </div>
 
 
